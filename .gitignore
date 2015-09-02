@@ -1,0 +1,10 @@
+/node_modules
+/.bower_components
+/.sass-cache
+/public/assets/css/*
+/public/assets/images/*
+/public/assets/svg/*
+/public/assets/js/*
+/public/dist
+/public/sitemaps
+/public/index.html

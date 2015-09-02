@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+DIR=$( cd "$(dirname "$0")/.." && pwd )
+NODE_VERSION=`cat .nvmrc`
+NVM_DIR="$DIR/nvm"
+
+echo "##teamcity[blockOpened name='Installing Node']"
+function load-nvm {
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+}
+
+if [[ `node --version` != "$NODE_VERSION" ]]; then
+  echo Installing node $NODE_VERSION
+
+  # Try to load nvm
+  load-nvm
+  type -a nvm > /dev/null 2>&1
+  rc=$?
+
+  if [[ $rc != 0 ]]; then
+    echo Installing nvm...
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+    load-nvm
+  fi
+
+  nvm use $NODE_VERSION || nvm install $NODE_VERSION
+fi
+echo "##teamcity[blockClosed name='Installing Node']"
+
+set -e
+echo "##teamcity[blockOpened name='npm install']"
+npm install
+echo "##teamcity[blockClosed name='npm install']"
+
+echo "##teamcity[blockOpened name='bower install']"
+`npm bin`/bower install
+echo "##teamcity[blockClosed name='bower install']"
+
+echo "##teamcity[blockOpened name='grunt ci']"
+`npm bin`/grunt ci
+echo "##teamcity[blockClosed name='grunt ci']"
+set +e
