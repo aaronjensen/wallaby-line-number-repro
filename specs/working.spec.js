@@ -1,5 +1,5 @@
-require('../lib/foo.js');
-require('../lib/bar.js');
+require('../libf/foo.js'); // Start wallaby, then after you get the failure, change libf to lib
+require('../libf/bar.js');
 
 describe('i work', () => {
   it('report', () => {
