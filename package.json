@@ -64,7 +64,7 @@
     "sinon": "^1.16.1",
     "sinon-chai": "^2.8.0",
     "svg4everybody": "^1.0.0",
-    "wallaby-webpack": "0.0.6",
+    "wallaby-webpack": "0.0.7",
     "watchpack": "^0.2.8",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
