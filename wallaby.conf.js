@@ -26,7 +26,7 @@ module.exports = function(wallaby) {
       {pattern: 'node_modules/sinon-chai/lib/sinon-chai.js', instrument: false},
       {pattern: 'public/assets/static/**/*', instrument: false},
 
-      {pattern: 'js/**/*.js', load: false},
+      {pattern: 'lib/**/*.js', load: false},
       {pattern: 'specs/specHelper.js', load: false},
       {pattern: 'specs/support/**/*.js', load: false},
     ],

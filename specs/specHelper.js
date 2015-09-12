@@ -1,1 +1,1 @@
-//require('phantomjs-function-bind-polyfill');
+require('phantomjs-function-bind-polyfill');
