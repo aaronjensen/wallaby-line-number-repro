@@ -1,4 +1,5 @@
 require('../../lib/bar');
+const foo = require('../../lib/foo');
 
 describe('i dont work', () => {
   it('no report', () => {

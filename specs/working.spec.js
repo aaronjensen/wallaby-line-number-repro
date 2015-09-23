@@ -1,4 +1,4 @@
-const foo = require('inject!../lib/foo'); // Start wallaby, then after you get the failure, change libf to lib
+const foo = require('inject!../lib/foo');
 
 describe('i work', () => {
   beforeEach(() => {
